@@ -95,8 +95,8 @@ i {
 
 @keyframes first_color {
     0% {
-        text-shadow: 0 0 10px #5f565a,
-        0 0 20px #382e35, 0 0 30px #1c1c1d;
+        text-shadow: 0 0 10px #e23d87,
+        0 0 20px #c0373d, 0 0 30px #e00e18;
     }
     100% {
         text-shadow: 0 0 5px #0ddd1f,

@@ -1,8 +1,8 @@
 let msg = document.getElementById("msg");
 let form = document.getElementById("form");
 let post = document.getElementById("post");
-let input = document.getElementById("input");
-let i = document.getElementById("fa-solid fa-trash-can");
+let input = document.querySelector("#input");
+
 
 form.addEventListener("submit", (e) =>{
     e.preventDefault();         // para que quede en la consola.
@@ -35,7 +35,7 @@ let crearPost = () => {
     <div>
         <p> ${data.text} </p>
             <span class="options"> 
-                <i class="fa-solid fa-pen-to-square"></i>
+                <i onClick="updatePost(this)" class="fa-solid fa-pen-to-square"></i>
                 <i onClick="deletePost(this)" class="fa-solid fa-trash-can"></i>
             </span>
     </div> `;
@@ -43,29 +43,15 @@ let crearPost = () => {
     }
 }
 
-let deletePost = () => {
-    
+let deletePost = (e) => {
+    if (confirm("Estas seguro de borrar el post ?") === true){
+        e.parentElement.parentElement.remove();
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let updatePost = (e) => {
+    if (confirm("Estas seguro de modificar el post ?") === true){
+        input.value = e.parentElement.previousElementSibling.innerHTML;
+        e.parentElement.parentElement.remove();
+    }   
+}

@@ -1,4 +1,7 @@
 body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(247, 247, 236) 0%, rgba(220,220,220,1) 7%,
+                                  rgba(250,255,255,1) 16%, rgba(180,212,255,1) 100%);
     text-align: center;
     font-family: sans-serif;
     margin: 0 50px ;
@@ -6,7 +9,8 @@ body {
 
 .container {
     display: flex;
-    gap: 50px;
+    gap: 200px;
+    margin: 50px;
 }
 
 #post {
@@ -21,12 +25,81 @@ body {
 
 .options {
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
- i {
-     cursor: pointer;
+
+i {
+
+    cursor: pointer;
  }
 
 #msg {
     color: red;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.button::before  {
+    position:absolute;
+    content: "";
+    top:0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background:
+    linear-gradient(115deg,
+    #4fcf70, #fad648,
+    #a767e5, #12bcfe, #44ce7b) ;
+    background-size: 50% 100%;
+    border-radius: inherit;
+}
+
+.button span {
+    display: block;
+    background-color: #000;
+    padding: 13px 20px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+.button:hover::before {
+    animation: animate_border
+    .75s linear infinite;
+}
+
+@keyframes animate_border {
+    to{
+        transform: translateX(-50%);
+    }   
+}
+
+#input {
+    background-color: rgb(203, 243, 230);
+}
+
+.icon, .label {
+    font-size: large;
+    color: #fff;
+    animation: first_color .5s
+    ease-in-out infinite alternate;
+}
+
+@keyframes first_color {
+    0% {
+        text-shadow: 0 0 10px #5f565a,
+        0 0 20px #382e35, 0 0 30px #1c1c1d;
+    }
+    100% {
+        text-shadow: 0 0 5px #0ddd1f,
+        0 0 10px #37bb8f, 0 0 15px #7aa893;
+    }
 }
